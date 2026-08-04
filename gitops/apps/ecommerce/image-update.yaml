@@ -1,0 +1,25 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: ecommerce
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcd@example.com
+        name: Flux
+      messageTemplate: |
+         Update ecommerce image to {{range .Changed.Changes}}{{.NewValue}}{{end}}
+    push:
+      branch: main
+  update:
+    path: ./apps/ecommerce
+    strategy: Setters

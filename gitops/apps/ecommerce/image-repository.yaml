@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: ecommerce
+  namespace: flux-system
+spec:
+  image: docker.io/sabreensalama/ecommerce
+  interval: 1m
