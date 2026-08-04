@@ -160,7 +160,7 @@ kubectl apply -f kubernetes-cluster/juice-shop.yaml
 ##### Monitoring Stack
 I would recommend a standard Kubernetes monitoring stack like this:
 
-Component	Purpose
+
 Prometheus	Collect metrics from Kubernetes and Juice Shop
 Alertmanager	Send alerts when thresholds are exceeded
 Grafana	Dashboards and visualization
@@ -169,17 +169,3 @@ Node Exporter	Node CPU, memory, disk metrics
 cAdvisor	Container CPU, memory, filesystem metrics
 Loki	Centralized application logs
 Promtail	Collect logs from pods and send them to Loki
-NGINX Ingress Metrics	Monitor HTTP requests, latency, response codes
-Blackbox Exporter	Synthetic health checks of the Juice Shop endpoint
-
-Metrics I'd monitor
-Pod CPU and memory usage
-Pod restarts
-Container crashes
-Node CPU, memory and disk usage
-HTTP request rate
-HTTP response latency
-HTTP 4xx/5xx error rate
-Availability of the application
-Ingress request metrics
-Cluster events
